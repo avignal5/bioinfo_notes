@@ -35,6 +35,10 @@ title: Home
 
 ## 2. Exploring, editing and subsetting large files in linux
 ### 2.1. navigating a file with [less](notes/Unix_Less_Commands.md)
+* The less command in unix allows to navigate large files
+* Includes search functions
+* Does not allow modifications of the files
+
 ### 2.2. Editing: use nano in unix or editor such as vscode
 * Windows and others cause compatibility problems. Is Notepad still useable?
 
