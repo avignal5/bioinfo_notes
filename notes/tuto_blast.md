@@ -6,6 +6,7 @@ title: blast
 
 # Command line BLAST+
 * Use BLAST+, rather than the old blast, which is removed from the official NCBI FTP
+
 ## Module load
 ```bash
 module load bioinfo/NCBI_Blast+/2.15.0+
@@ -14,10 +15,12 @@ module load bioinfo/NCBI_Blast+/2.15.0+
 * blastall -p blastn changed to blastn
 * blastall -p blastp changed to blastp
 * etc.
+
 ## Available programs
 * Database creation: makeblastdb
 * Search in databases: blastn, blastp, blastx, tblastn, tblastx
 * Complete list of executables (the elements in the same folder as blastn): 
+
 ```bash
 ls $(dirname $(which blastn))
 ```
@@ -41,6 +44,7 @@ makeblastdb -in /home/ikoyo/genomes/HAv3_1/GCF_003254395.2_Amel_HAv3.1_genomic.f
 ```
 ## Blast sequences
 * For instance in a directory /home/ikoyo/Blast_results (create Blast_results with mkdir)
+
 ```bash
 # general
 blastn -query /path/to/fasta/file -db /path/to/blast_database -outfmt 6 -out /path/to/out_file

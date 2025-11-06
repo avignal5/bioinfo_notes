@@ -19,7 +19,11 @@ title: Home
 
 
 ## Manipulating and analysing DNA sequences
+* We will deal here mostly with sequences in fasta format
 ### Extracting sequences from multifasta files with [SeqTk](notes/tuto_seqtk.md)
+* Typically
+    * make a list of the sequence names, edit the list and extract the sequences from the edited list
+    * extract specific portions of sequence using lists (bed files) or directly one single portion ta the command line
 ### Using [BLAST](notes/tuto_blast.md) with the command line.
 ### Multiple alignment with [MAFFT](notes/tuto_mafft.md)
 
