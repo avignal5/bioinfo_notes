@@ -79,18 +79,18 @@ awk 'NR>=5&&NR<=20' TestHiveChr16.sync
 ```
 ## Sort
 + Text sort column 1 and numeric on column 2
-```{bash, eval = FALSE}
+```
 sort -k1,1 -k2,2n file.txt
 ```
 ## Copy when links
 * To copy symbolic links in the present directory, while still pointing to the same files
-```{bash, eval = FALSE}
+```
 cp -P */RawData/* .
 ```
 ## Obtain the fastq files from NG6
 * Copy the symbolic links to a directory (see above)
 * In that directory, to copy the fastq files in the directory fastqs:
-```{bash, eval = FALSE}
+```
 nohup rsync -avz --copy-unsafe-links *.fastq.gz fastqs &
 ```
 
@@ -298,26 +298,26 @@ datamash -W transpose < wholeList > wholeList2
         --log-file=/path/to/logFileTes
 ### typical copy from work to save:
     * directory_or_file will be written in directory, giving /save/path/to/directory/directory_or_file
-```{bash, eval = FALSE}
+```
 rsync -avzu /work/path/to/directory_or_file /save/path/to/directory
 ```
 
 ### To download fasq files from NG6 by using the links:
     * -L option will transform symlink into referent file/dir
-```{bash, eval = FALSE}
+```
 nohup sh -c 'for i in `ls /home/gencel/vignal/work/Analysis/Project_ROYALBEE.301/Run*/RawData/*fastq.gz`; do rsync -avLz ${i} /genphyse/cytogen/seqapipop/FastqFromNG6 1>>rsyncLog; done' &
 ```
 # nohup
 * nohup sh -c allows a for loop:
-```{bash, eval = FALSE}
+```
 nohup sh -c 'for i in `ls /home/gencel/vignal/work/Analysis/Project_ROYALBEE.301/Run*/RawData/*fastq.gz`; do rsync -avLz ${i} /genphyse/cytogen/seqapipop/FastqFromNG6 1>>rsyncLog; done' &
 ```
 * call a script:
-```{bash, eval = FALSE}
+```
  nohup sh copyGvcfsToSave &
 ```
 * call a script, screen output to file:
-```{bash, eval = FALSE}
+```
  nohup sh copyGvcfsToSave 1>>log &
 ```
 
