@@ -4,6 +4,51 @@ title: "BASH and Others"
 
 [Home](../index.md)
 
+- [Unix commands](#unix-commands)
+  - [grep](#grep)
+    - [Select several words in a line](#select-several-words-in-a-line)
+  - [Select a range of lines from a file](#select-a-range-of-lines-from-a-file)
+  - [Sort](#sort)
+  - [Copy when links](#copy-when-links)
+  - [Obtain the fastq files from NG6](#obtain-the-fastq-files-from-ng6)
+- [BASH](#bash)
+  - [Loop](#loop)
+    - [Print a list of bamfiles from a serie of folders:](#print-a-list-of-bamfiles-from-a-serie-of-folders)
+        - [Output in columns:](#output-in-columns)
+        - [Output in lines, separator = blank space:](#output-in-lines-separator--blank-space)
+        - [Output in lines, separator = blank tab:](#output-in-lines-separator--blank-tab)
+  - [Variables](#variables)
+    - [General](#general)
+    - [Separate using internal field separators](#separate-using-internal-field-separators)
+    - [Separate using internal field separators on an array](#separate-using-internal-field-separators-on-an-array)
+    - [Internal field separator](#internal-field-separator)
+        - [Only used during word splitting of data, for example, when coming from a variable](#only-used-during-word-splitting-of-data-for-example-when-coming-from-a-variable)
+    - [Uppercase and lowercase](#uppercase-and-lowercase)
+  - [Arrays](#arrays)
+    - [Declaration](#declaration)
+    - [Accession to elements](#accession-to-elements)
+    - [Assignment of values](#assignment-of-values)
+    - [for loop on all elements](#for-loop-on-all-elements)
+    - [Rename files (change extentions)](#rename-files-change-extentions)
+        - [Can also be done with sed or rename](#can-also-be-done-with-sed-or-rename)
+    - [Search and replace](#search-and-replace)
+    - [Add element at the end](#add-element-at-the-end)
+  - [echo](#echo)
+        - [The -e argument allows for escaping:](#the--e-argument-allows-for-escaping)
+  - [Testing time on files](#testing-time-on-files)
+- [Diverse applications](#diverse-applications)
+  - [Obtain a backuped file on genologin](#obtain-a-backuped-file-on-genologin)
+  - [Transpose a line into a column with datamash](#transpose-a-line-into-a-column-with-datamash)
+- [One way synchronisation with rsync](#one-way-synchronisation-with-rsync)
+  - [#main options:](#main-options)
+    - [typical copy from work to save:](#typical-copy-from-work-to-save)
+    - [To download fasq files from NG6 by using the links:](#to-download-fasq-files-from-ng6-by-using-the-links)
+- [nohup](#nohup)
+- [SED](#sed)
+  - [Remove blank lines](#remove-blank-lines)
+- [AWK](#awk)
+
+
 # Unix commands
 ## grep
 ### Select several words in a line
@@ -216,7 +261,9 @@ echo -e "\nText\there\n--------------\n\n"
 for i in `ls *.vcf.gz`; do if [ ${i} -nt ${i}.tbi ] ; then echo ${i} NO; else echo ${i} OK; fi; done | grep NO$
 ```
 
-# Obtain a backuped file on genologin
+# Diverse applications
+
+## Obtain a backuped file on genologin
 * find the file
 ```
 ls /work/.snapshots/
@@ -227,13 +274,13 @@ ls /work/.snapshots/
 cp /work/.snapshots/snap_gpfs_2018-09-06-00-00-23/project/cytogen/Alain/seqapipopOnHAV3_AV/callingDiplo/combinedVcf/combineGVCFsHAV3Called_slurm.bash .
 ```
 
-# Transpose a line into a column with datamash
+## Transpose a line into a column with datamash
 ```
 datamash -W transpose < wholeList > wholeList2
 ```
 
 # One way synchronisation with rsync
-# #main options:
+## #main options:
 
         -a : equivalent to -rlptgoD
             -r : recusrive
@@ -249,13 +296,13 @@ datamash -W transpose < wholeList > wholeList2
         -L : transform symlink into referent file/dir
         --stats
         --log-file=/path/to/logFileTes
-## typical copy from work to save:
+### typical copy from work to save:
     * directory_or_file will be written in directory, giving /save/path/to/directory/directory_or_file
 ```{bash, eval = FALSE}
 rsync -avzu /work/path/to/directory_or_file /save/path/to/directory
 ```
 
-## To download fasq files from NG6 by using the links:
+### To download fasq files from NG6 by using the links:
     * -L option will transform symlink into referent file/dir
 ```{bash, eval = FALSE}
 nohup sh -c 'for i in `ls /home/gencel/vignal/work/Analysis/Project_ROYALBEE.301/Run*/RawData/*fastq.gz`; do rsync -avLz ${i} /genphyse/cytogen/seqapipop/FastqFromNG6 1>>rsyncLog; done' &
