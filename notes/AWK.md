@@ -5,6 +5,7 @@
 
 ## Select columns and lines in tables
 * Created a few tables, such as "table1.txt for the examples
+
 ```bash
 more /Users/avignal/Documents/Documentations/BASH/Directory/table1.txt
 ```
