@@ -181,53 +181,56 @@ awk 'BEGIN{FS="_";OFS="\t"}{print $2,$4}' /Users/avignal/Documents/Documentation
     Ten	Twelve
 
 ## Replace characters (solves the problem when inserting tabulations with sed) same as using FS and OFS (above)?
-```
+```bash
 more table3.txt
 awk '{gsub(";","\t",$0);print}' table3.txt
 ```
-```
+```bash
 awk '{gsub("Primary Assembly","PrimaryAssembly");print}' Galgal5Stats.txt
 ```
 
 # Sum of third column values
-```
+```bash
 awk 'BEGIN{somme=0}{somme +=$3}END{print somme}' table1.txt
 ```
 
 # One column into a line
 * With an output separator specified by ORS
-```
+
+```bash
 cat Col1.txt
 awk 'BEGIN{ORS=" | "}{print $1}' Col1.txt
 ```
 * and remove last separator:
-```
+
+```bash
 awk 'BEGIN{ORS=" | "}{print $1}' Col1.txt | sed s/...$//
 ```
 
 # Delete a list of jobs on the cluster
-```
+```bash
 for i in `qstat -u vignal | grep Eqw | awk 'BEGIN{ORS=" "}{print $1}'`; do qdel ${i}; done
 ```
 
 # Length distribution of PacBio FASTQ file
-```
+```bash
 awk 'NR%4 == 2 {lengths[length($0)]++} END {for (l in lengths) {print l, lengths[l]}}' file.fastq
 ```
 It reads like this: every second line in every group of 4 lines (the sequence line), measure the length of the sequence and increment the array cell corresponding to that length. When all lines have been read, loop over the array to print its content. In awk, arrays and array cells are initialized when they are called for the first time, no need to initialize them before.
 
 Other solution (easier, especially if gzipped files by using zcat) :
-```
+```bash
 cat reads.fastq | awk '{if(NR%4==2) print length($1)}' | sort -n | uniq -c > read_length.txt
 ```
 
 # Coverage in a pileup file
 * Problem: many more bases whan there is an insertion. In fact, the coverage is simply in the 4th column !
-```{bash, eval = FALSE}
+
+```bash
 awk -F "\t" -v fld=5 '{print NR "\t" gsub(/[ACGTacgt]/,"",$fld)}' test.pileup
 ```
 ## Or for a limited number of bases:
-```{bash, eval = FALSE}
+```bash
 awk -F "\t" -v fld=5 '($1 == "NC_007079.3" && $2 >= 3000000 && $2 <= 3100000) {print $2 "\t" gsub(/[ACGTacgt]/,"",$fld)}' ITSAP100-1B-50_CTGAAGCT-AGGCTATA_L003.pileup > coverageChr10Part.pileup
 ```
 
@@ -242,12 +245,12 @@ In the project folder: /home/gencel/vignal/work/Analysis/Project_ROYALBEE.301
 * From one list into two columns
 * Copy and paste in Excel
 
-```{bash, eval = FALSE}
+```bash
 find . -name Sav* | grep fast | awk 'BEGIN {FS="/"} ; {print$4}' | awk '{ if (NR%2==0) {print $1,"\t",prev ;} else { prev=$1 ;}}'
 ```
 
 # Change values in 2 columns of an agp file
-```{bash, eval = FALSE}
+```bash
 awk -F '\t' 'BEGIN{OFS="\t"} $8=="no" {$8="yes";$9="align_xgenus"}{print$0}' chromosomes.agp
 ```
 # Join
@@ -273,7 +276,7 @@ chr1   234    a     b    c    d
 chr1   345    aa    b    c    d    yyyy    defg
 chr1   456    a    b    c    d
 
-```{bash, eval=FALSE}
+```bash
 $ awk 'NR==FNR{a[$3,$4]=$1OFS$2;next}{$6=a[$1,$2];print}' OFS='\t' fileb filea
 chr1    123     a    b    c     xxxx    abcd
 chr1    234     a    b    c 
@@ -281,8 +284,9 @@ chr1    345     a    b    c     yyyy    defg
 chr1    456     a    b    c 
 ```
 
-Explanation:
+* Explanation:
 
+```bash
 NR==FNR             # current recond num match the file record num i.e in filea => from start to end of file 2
 a[$3,$4]=$1OFS$2    # Create entry in array with fields 3 and 4 as the key => assign columns 1 and 2 of file 2, using OFS as separator, to a hash having columns 2 and 4 as keys
 next                # Grab the next line (don't process the next block)
@@ -290,4 +294,4 @@ $6=a[$1,$2]         # Assign the looked up value to field 6 (+rebuild records)  
 print               # Print the current line & the matching entry from fileb ($6)
 
 OFS='\t'            # Seperate each field with a single TAB on output
-
+```
