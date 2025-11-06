@@ -26,6 +26,7 @@ title: Home
 ### navigating in a file with [less](notes/Unix_Less_Commands.md)
 ### Editing: use nano in unix or editor such as vscode
 * Windows and others cause compatibility problems. Is Notepad still useable?
+
 ### Selecting lines and columns and choosing field separators with [awk](notes/AWK.md)
 
 
