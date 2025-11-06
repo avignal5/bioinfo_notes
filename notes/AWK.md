@@ -24,6 +24,7 @@
 - [Extract the two fasta file names from the NG6 links in a project folder](#extract-the-two-fasta-file-names-from-the-ng6-links-in-a-project-folder)
   - [To prepare SRA\_metadata.xlsx file for submitting to SRA](#to-prepare-sra_metadataxlsx-file-for-submitting-to-sra)
 - [Change values in 2 columns of an agp file](#change-values-in-2-columns-of-an-agp-file)
+- [Join](#join)
 
 # Basic AWK: select lines, columns and choose field separator
 
@@ -249,3 +250,44 @@ find . -name Sav* | grep fast | awk 'BEGIN {FS="/"} ; {print$4}' | awk '{ if (NR
 ```{bash, eval = FALSE}
 awk -F '\t' 'BEGIN{OFS="\t"} $8=="no" {$8="yes";$9="align_xgenus"}{print$0}' chromosomes.agp
 ```
+# Join
+
+file A
+
+chr1   123 aa b c d
+chr1   234 a  b c d
+chr1   345 aa b c d
+chr1   456 a  b c d
+....
+
+file B
+
+xxxx  abcd    chr1   123    aa    c    d    e
+yyyy  defg    chr1   345    aa    e    f    g
+...
+
+I want to join the two files based on 3 columns with "chr1", "123" and "aa" and add first two columns from file B to file A, such that output looks as shown below: output:
+
+chr1   123    aa    b    c    d    xxxx    abcd
+chr1   234    a     b    c    d
+chr1   345    aa    b    c    d    yyyy    defg
+chr1   456    a    b    c    d
+
+```{bash, eval=FALSE}
+$ awk 'NR==FNR{a[$3,$4]=$1OFS$2;next}{$6=a[$1,$2];print}' OFS='\t' fileb filea
+chr1    123     a    b    c     xxxx    abcd
+chr1    234     a    b    c 
+chr1    345     a    b    c     yyyy    defg
+chr1    456     a    b    c 
+```
+
+Explanation:
+
+NR==FNR             # current recond num match the file record num i.e in filea => from start to end of file 2
+a[$3,$4]=$1OFS$2    # Create entry in array with fields 3 and 4 as the key => assign columns 1 and 2 of file 2, using OFS as separator, to a hash having columns 2 and 4 as keys
+next                # Grab the next line (don't process the next block)
+$6=a[$1,$2]         # Assign the looked up value to field 6 (+rebuild records)  => value of the hash assigned to field 6 of file 1
+print               # Print the current line & the matching entry from fileb ($6)
+
+OFS='\t'            # Seperate each field with a single TAB on output
+
