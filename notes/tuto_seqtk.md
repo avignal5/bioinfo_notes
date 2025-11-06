@@ -10,7 +10,7 @@ module load bioinfo/Seqtk/1.3
 # Make a list of the sequences in the file:
 grep '>' multifasta_file.fa | awk 'BEGIN{FS=">"}{print $2}' > list.tsv
 # Edit the list with text editor, such as nano, by keeping the lines for the sequences to keep, then:
-seqtk subseq  multifasta_file.fa list.tsv > multifasta_file_subset.fa
+seqtk subseq  multifasta_file.fa list_edited.tsv > multifasta_file_subset.fa
 ```
 ## Extract several regions (which could be gene coordinates)
 * These can be retrieved from the gtf annotation file with grep and awk !
