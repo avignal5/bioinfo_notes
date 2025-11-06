@@ -12,9 +12,10 @@ title: Home
   - [Using BLAST with the command line.](#using-blast-with-the-command-line)
   - [Multiple alignment with MAFFT](#multiple-alignment-with-mafft)
 - [Exploring, editing and subsetting large files in linux](#exploring-editing-and-subsetting-large-files-in-linux)
-  - [navigating in a file with less](#navigating-in-a-file-with-less)
+  - [navigating a file with less](#navigating-a-file-with-less)
   - [Editing: use nano in unix or editor such as vscode](#editing-use-nano-in-unix-or-editor-such-as-vscode)
   - [Selecting lines and columns and choosing field separators with awk](#selecting-lines-and-columns-and-choosing-field-separators-with-awk)
+  - [Notes on BASH](#notes-on-bash)
 
 
 ## Manipulating and analysing DNA sequences
@@ -23,10 +24,12 @@ title: Home
 ### Multiple alignment with [MAFFT](notes/tuto_mafft.md)
 
 ## Exploring, editing and subsetting large files in linux
-### navigating in a file with [less](notes/Unix_Less_Commands.md)
+### navigating a file with [less](notes/Unix_Less_Commands.md)
 ### Editing: use nano in unix or editor such as vscode
 * Windows and others cause compatibility problems. Is Notepad still useable?
 
 ### Selecting lines and columns and choosing field separators with [awk](notes/AWK.md)
+
+### Notes on [BASH](notes/BASHnotes.md)
 
 
