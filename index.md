@@ -18,6 +18,8 @@ title: Home
   - [3. Notes on BASH](#3-notes-on-bash)
 
 
+<div style="page-break-after: always;"></div>
+
 ## 1. Manipulating and analysing DNA sequences
 * We will deal here mostly with sequences in fasta format
 
