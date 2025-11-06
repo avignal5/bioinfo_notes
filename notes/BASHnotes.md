@@ -4,6 +4,10 @@ title: "BASH and Others"
 
 [Home](../index.md)
 
+# General unix and bash    <!-- omit in toc -->
+
+## Table of contents  <!-- omit in toc -->
+
 - [Unix commands](#unix-commands)
   - [grep](#grep)
     - [Select several words in a line](#select-several-words-in-a-line)

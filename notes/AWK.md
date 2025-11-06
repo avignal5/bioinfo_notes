@@ -2,6 +2,9 @@
 [Home](../index.md)
 
 # AWK  <!-- omit in toc -->
+
+## Table of contents  <!-- omit in toc -->
+
 - [Basic AWK: select lines, columns and choose field separator](#basic-awk-select-lines-columns-and-choose-field-separator)
   - [Select one or several columns](#select-one-or-several-columns)
   - [Select columns and lines on the basis of values](#select-columns-and-lines-on-the-basis-of-values)
