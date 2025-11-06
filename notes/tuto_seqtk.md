@@ -14,7 +14,7 @@ seqtk subseq  multifasta_file.fa list.tsv > multifasta_file_subset.fa
 ```
 ## Extract several regions (which could be gene coordinates)
 * These can be retrieved from the gtf annotation file with grep and awk !
-```bash
+```
 # Make list of regions TAB delimited file (tsv)
 # Can also be prepared and modified with the nano text editor
 cat > regions.list
@@ -28,17 +28,17 @@ seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Am
 
 ## Extract one region from a chromosome
 * Positions 1001 to 2000 of HAv3.1 chromosome 1
-```bash
+```
 echo -e "NC_037638.1\t1000\t2000" | seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna -
 # equivalent to:
 seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna <(echo -e "NC_037638.1\t1000\t2000")
 ```
 * All the mitochondrial genome
-```bash
+```
 echo -e "NC_001566.1" | seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna - > HAv3_1_mitoch.fa
 ```
 ## Bonus : prepare the file for extracting the genes
 * download the gff annotation file from NCBI
-```bash
+```
 awk 'BEGIN{OFS="\t"}$1 == "NC_001566.1" && $3 == "gene" {print $1, $4, $5, $9}' genomic.gff | grep -e protein -e rRNA | awk 'BEGIN{OFS="\t"}{print $1, $2, $3}'
 ```
