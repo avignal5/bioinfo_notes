@@ -1,3 +1,9 @@
+---
+title: blast
+---
+
+[Home](index.md) 
+
 # Command line BLAST+
 * Use BLAST+, rather than the old blast, which is removed from the official NCBI FTP
 ## Module load
