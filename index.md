@@ -10,17 +10,22 @@ title: Home
 - [Manipulating and analysing DNA sequences](#manipulating-and-analysing-dna-sequences)
   - [Extracting sequences from multifasta files with SeqTk](#extracting-sequences-from-multifasta-files-with-seqtk)
   - [Using BLAST with the command line.](#using-blast-with-the-command-line)
-  - [Multiple alignmentMAFFT](#multiple-alignmentmafft)
+  - [Multiple alignment with MAFFT](#multiple-alignment-with-mafft)
 - [Exploring, editing and subsetting large files in linux](#exploring-editing-and-subsetting-large-files-in-linux)
   - [navigating in a file with less](#navigating-in-a-file-with-less)
+  - [Editing: use nano in unix or editor such as vscode](#editing-use-nano-in-unix-or-editor-such-as-vscode)
+  - [Selecting lines and columns and choosing field separators with awk](#selecting-lines-and-columns-and-choosing-field-separators-with-awk)
 
 
 ## Manipulating and analysing DNA sequences
 ### Extracting sequences from multifasta files with [SeqTk](notes/tuto_seqtk.md)
 ### Using [BLAST](notes/tuto_blast.md) with the command line.
-### Multiple alignment[MAFFT](notes/tuto_mafft.md)
+### Multiple alignment with [MAFFT](notes/tuto_mafft.md)
 
 ## Exploring, editing and subsetting large files in linux
 ### navigating in a file with [less](notes/Unix_Less_Commands.md)
+### Editing: use nano in unix or editor such as vscode
+* Windows and others cause compatibility problems. Is Notepad still useable?
+### Selecting lines and columns and choosing field separators with [awk](notes/AWK.md)
 
 
