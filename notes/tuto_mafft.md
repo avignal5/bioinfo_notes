@@ -1,5 +1,5 @@
 # MAFFT
-
+[Home](../index.md) 
 ```bash
 module load bioinfo/MAFFT/7.505
 ```
