@@ -23,7 +23,7 @@ NC_001566.1 1000    1300
 NC_001566.1 1670    1700
 NC_001566.1 2578    2788
 
-seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna regions.list > regions.fa
+seqtk subseq /path_to/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna regions.list > regions.fa
 ```
 * You get a multifasta file
 
