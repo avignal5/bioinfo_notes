@@ -46,7 +46,7 @@ title: "BASH and Others"
 - [nohup](#nohup)
 - [SED](#sed)
   - [Remove blank lines](#remove-blank-lines)
-- [AWK](#awk)
+- [Notes on AWK](#notes-on-awk)
 
 
 # Unix commands
@@ -78,18 +78,21 @@ sed -n '5,20p' TestHiveChr16.sync
 awk 'NR>=5&&NR<=20' TestHiveChr16.sync 
 ```
 ## Sort
-+ Text sort column 1 and numeric on column 2
+* Text sort column 1 and numeric on column 2
+
 ```
 sort -k1,1 -k2,2n file.txt
 ```
 ## Copy when links
 * To copy symbolic links in the present directory, while still pointing to the same files
+
 ```
 cp -P */RawData/* .
 ```
 ## Obtain the fastq files from NG6
 * Copy the symbolic links to a directory (see above)
 * In that directory, to copy the fastq files in the directory fastqs:
+
 ```
 nohup rsync -avz --copy-unsafe-links *.fastq.gz fastqs &
 ```
@@ -257,6 +260,7 @@ echo -e "\nText\there\n--------------\n\n"
 * To check if the *.vcf.gz.tbi file is more recent than the *.vcf.gz:
     * -nt : newer than
     * -ot : older than
+
 ```
 for i in `ls *.vcf.gz`; do if [ ${i} -nt ${i}.tbi ] ; then echo ${i} NO; else echo ${i} OK; fi; done | grep NO$
 ```
@@ -265,11 +269,13 @@ for i in `ls *.vcf.gz`; do if [ ${i} -nt ${i}.tbi ] ; then echo ${i} NO; else ec
 
 ## Obtain a backuped file on genologin
 * find the file
+
 ```
 ls /work/.snapshots/
 ```
 
 * then copy from the directory with the date corresponding to the snapshot we are interested in:
+
 ```
 cp /work/.snapshots/snap_gpfs_2018-09-06-00-00-23/project/cytogen/Alain/seqapipopOnHAV3_AV/callingDiplo/combinedVcf/combineGVCFsHAV3Called_slurm.bash .
 ```
@@ -297,26 +303,31 @@ datamash -W transpose < wholeList > wholeList2
         --stats
         --log-file=/path/to/logFileTes
 ### typical copy from work to save:
-    * directory_or_file will be written in directory, giving /save/path/to/directory/directory_or_file
+* directory_or_file will be written in directory, giving /save/path/to/directory/directory_or_file
+
 ```
 rsync -avzu /work/path/to/directory_or_file /save/path/to/directory
 ```
 
 ### To download fasq files from NG6 by using the links:
-    * -L option will transform symlink into referent file/dir
+* -L option will transform symlink into referent file/dir
+
 ```
 nohup sh -c 'for i in `ls /home/gencel/vignal/work/Analysis/Project_ROYALBEE.301/Run*/RawData/*fastq.gz`; do rsync -avLz ${i} /genphyse/cytogen/seqapipop/FastqFromNG6 1>>rsyncLog; done' &
 ```
 # nohup
 * nohup sh -c allows a for loop:
+
 ```
 nohup sh -c 'for i in `ls /home/gencel/vignal/work/Analysis/Project_ROYALBEE.301/Run*/RawData/*fastq.gz`; do rsync -avLz ${i} /genphyse/cytogen/seqapipop/FastqFromNG6 1>>rsyncLog; done' &
 ```
 * call a script:
+
 ```
  nohup sh copyGvcfsToSave &
 ```
 * call a script, screen output to file:
+
 ```
  nohup sh copyGvcfsToSave 1>>log &
 ```
@@ -328,4 +339,4 @@ sed -i '/^$/d' file.txt
 ```
 The -i means it will edit the file in-place
 
-# [AWK](../notes/AWK.md)
+# Notes on [AWK](../notes/AWK.md)
