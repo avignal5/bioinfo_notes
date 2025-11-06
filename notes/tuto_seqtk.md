@@ -18,12 +18,12 @@ seqtk subseq  multifasta_file.fa list_edited.tsv > multifasta_file_subset.fa
 ```bash
 # Make list of regions TAB delimited file (tsv)
 # Can also be prepared and modified with the nano text editor
-cat > regions.list
+cat > regions.tsv
 NC_001566.1 1000    1300
 NC_001566.1 1670    1700
 NC_001566.1 2578    2788
 
-seqtk subseq /path_to/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna regions.list > regions.fa
+seqtk subseq /path_to/GCF_003254395.2_Amel_HAv3.1_genomic.fna regions.tsv > regions.fa
 ```
 * You get a multifasta file
 
@@ -31,18 +31,18 @@ seqtk subseq /path_to/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna reg
 * Positions 1001 to 2000 of HAv3.1 chromosome 1
 
 ```bash
-echo -e "NC_037638.1\t1000\t2000" | seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna -
+echo -e "NC_037638.1\t1000\t2000" | seqtk subseq /path_to/GCF_003254395.2_Amel_HAv3.1_genomic.fna -
 # equivalent to:
-seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna <(echo -e "NC_037638.1\t1000\t2000")
+seqtk subseq /path_to/GCF_003254395.2_Amel_HAv3.1_genomic.fna <(echo -e "NC_037638.1\t1000\t2000")
 ```
 * All the mitochondrial genome
 
 ```bash
-echo -e "NC_001566.1" | seqtk subseq /home/vignal/save/Genomes/Abeille/HAv3_1_indexes/GCF_003254395.2_Amel_HAv3.1_genomic.fna - > HAv3_1_mitoch.fa
+echo -e "NC_001566.1" | seqtk subseq /path_to/GCF_003254395.2_Amel_HAv3.1_genomic.fna - > HAv3_1_mitoch.fa
 ```
 ## Bonus : prepare the file for extracting the genes
 * download the gff annotation file from NCBI
 
 ```bash
-awk 'BEGIN{OFS="\t"}$1 == "NC_001566.1" && $3 == "gene" {print $1, $4, $5, $9}' genomic.gff | grep -e protein -e rRNA | awk 'BEGIN{OFS="\t"}{print $1, $2, $3}'
+awk 'BEGIN{OFS="\t"}$1 == "NC_001566.1" && $3 == "gene" {print $1, $4, $5, $9}' genomic.gff | grep -e protein -e rRNA | awk 'BEGIN{OFS="\t"}{print $1, $2, $3}' > mitich_genes.tsv
 ```
