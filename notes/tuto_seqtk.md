@@ -1,5 +1,7 @@
+[Home](../index.md)
+
 # seqtk
-[Home](../index.md) 
+
 ```bash
 module load bioinfo/Seqtk/1.3
 ```
