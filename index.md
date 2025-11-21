@@ -47,5 +47,5 @@ title: Home
 ### 3. Notes on [BASH](notes/BASHnotes.md)
 
 
-[test](https://avignal5.github.io/bioinfo_notes/notes/tuto_mafft.html#documentation)
+Can also include a complete link: [test](https://avignal5.github.io/bioinfo_notes/notes/tuto_mafft.html#documentation)
 
