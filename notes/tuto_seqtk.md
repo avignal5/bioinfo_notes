@@ -1,7 +1,7 @@
 [Home](../index.md)
 
 # seqtk
-* To be compared eventually with seqkit, which is also on the cluster
+* To be compared eventually with seqkit, having simiular functions, which is also on the cluster
 
 ```bash
 module load bioinfo/Seqtk/1.3
