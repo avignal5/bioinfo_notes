@@ -15,7 +15,9 @@ title: Home
   - [2.1. navigating a file with less](#21-navigating-a-file-with-less)
   - [2.2. Editing: use nano in unix or editor such as vscode](#22-editing-use-nano-in-unix-or-editor-such-as-vscode)
   - [2.3. Selecting lines and columns and choosing field separators with awk](#23-selecting-lines-and-columns-and-choosing-field-separators-with-awk)
-  - [3. Notes on BASH](#3-notes-on-bash)
+- [3. Notes on BASH](#3-notes-on-bash)
+- [4. Exercises](#4-exercises)
+  - [4.1 GetOrganelle \[exercises/Exercises\_GetOrganelle.md\]](#41-getorganelle-exercisesexercises_getorganellemd)
 
 
 <div style="page-break-after: always;"></div>
@@ -44,8 +46,10 @@ title: Home
 
 ### 2.3. Selecting lines and columns and choosing field separators with [awk](notes/AWK.md)
 
-### 3. Notes on [BASH](notes/BASHnotes.md)
+## 3. Notes on [BASH](notes/BASHnotes.md)
 
+## 4. Exercises
+### 4.1 GetOrganelle [exercises/Exercises_GetOrganelle.md]
 
 Can also include a complete link: [test](https://avignal5.github.io/bioinfo_notes/notes/tuto_mafft.html#documentation)
 
