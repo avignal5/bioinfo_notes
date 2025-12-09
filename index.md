@@ -17,7 +17,7 @@ title: Home
   - [2.3. Selecting lines and columns and choosing field separators with awk](#23-selecting-lines-and-columns-and-choosing-field-separators-with-awk)
 - [3. Notes on BASH](#3-notes-on-bash)
 - [4. Exercises](#4-exercises)
-  - [4.1 GetOrganelle \[exercises/Exercises\_GetOrganelle.md\]](#41-getorganelle-exercisesexercises_getorganellemd)
+  - [4.1 GetOrganelle exercises](#41-getorganelle-exercises)
 
 
 <div style="page-break-after: always;"></div>
@@ -49,7 +49,7 @@ title: Home
 ## 3. Notes on [BASH](notes/BASHnotes.md)
 
 ## 4. Exercises
-### 4.1 GetOrganelle [exercises/Exercises_GetOrganelle.md]
+### 4.1 GetOrganelle [exercises](/Exercises_GetOrganelle.md)
 
 Can also include a complete link: [test](https://avignal5.github.io/bioinfo_notes/notes/tuto_mafft.html#documentation)
 
