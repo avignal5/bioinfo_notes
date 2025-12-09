@@ -51,7 +51,6 @@ title: Home
 ## 4. Exercises
 ### 4.1 GetOrganelle [exercises](Exercises/Exercises_GetOrganelle.md)
 
-test
 
 Can also include a complete link: [test](https://avignal5.github.io/bioinfo_notes/notes/tuto_mafft.html#documentation)
 
