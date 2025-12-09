@@ -64,5 +64,8 @@ Try using a loop like:
 for i in ${INDIR}/*/extended_spades/scaffolds.fasta
 ```
 
+## Exercise 5
+Using the cat command, you can now create the multifasta file !
+
 
 
