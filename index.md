@@ -49,7 +49,7 @@ title: Home
 ## 3. Notes on [BASH](notes/BASHnotes.md)
 
 ## 4. Exercises
-### 4.1 GetOrganelle [exercises](/Exercises_GetOrganelle.md)
+### 4.1 GetOrganelle [exercises](exercises/Exercises_GetOrganelle.md)
 
 Can also include a complete link: [test](https://avignal5.github.io/bioinfo_notes/notes/tuto_mafft.html#documentation)
 
