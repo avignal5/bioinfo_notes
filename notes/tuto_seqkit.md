@@ -12,6 +12,15 @@ module load bioinfo/SeqKit/2.9.0
 * -l : sequence length
 * -n : prints names only (otherwise, you get also the sequence)
 * -i : prints only the identifier (otherwise you get the description)
+
 ```bash
 seqkit fx2tab -lni seq.fa
 ```
+
+## Extract first sequences from multifasta
+* -n : number of sequences to extract
+
+```bash
+seqkit head -n 1 in.fa > out.fa
+```
+
