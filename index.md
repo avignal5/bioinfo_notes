@@ -8,7 +8,7 @@ title: Home
 ## Table of contents  <!-- omit in toc -->
 
 - [1. Manipulating and analysing DNA sequences](#1-manipulating-and-analysing-dna-sequences)
-  - [1.1. Extracting sequences from multifasta files with SeqTk](#11-extracting-sequences-from-multifasta-files-with-seqtk)
+  - [1.1. Extracting sequences from multifasta files with SeqTk and SeqKit](#11-extracting-sequences-from-multifasta-files-with-seqtk-and-seqkit)
   - [1.2. Using BLAST with the command line.](#12-using-blast-with-the-command-line)
   - [1.3. Multiple alignment with MAFFT](#13-multiple-alignment-with-mafft)
 - [2. Exploring, editing and subsetting large files in linux](#2-exploring-editing-and-subsetting-large-files-in-linux)
@@ -25,7 +25,7 @@ title: Home
 ## 1. Manipulating and analysing DNA sequences
 * We will deal here mostly with sequences in fasta format
 
-### 1.1. Extracting sequences from multifasta files with [SeqTk](notes/tuto_seqtk.md)
+### 1.1. Extracting sequences from multifasta files with [SeqTk](notes/tuto_seqtk.md) and [SeqKit](notes/tuto_seqkit.md)
 * Typically
     * Make a list of the sequence names, edit the list and extract the sequences from the edited list
     * Mxtract specific portions of sequence using lists (bed files) or directly one single portion ta the command line
